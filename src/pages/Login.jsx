@@ -85,7 +85,7 @@ export default function Login() {
           <div style={{ 
             position: 'absolute', top: '50%', left: '50%', transform: 'translate(-50%, -50%)',
             width: '120%', height: '120%', 
-            background: 'radial-gradient(circle, rgba(228,30,46,0.12) 0%, transparent 70%)', 
+            background: 'radial-gradient(circle, var(--neon-card) 0%, transparent 70%)', 
             filter: 'blur(50px)', pointerEvents: 'none', zIndex: 0 
           }} />
 

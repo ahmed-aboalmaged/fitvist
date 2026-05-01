@@ -6,10 +6,12 @@
   padding: 0;
 }
 
-:root, .dark-mode {
+:root {
   --red: #e41e2e;
   --red-dark: #b91626;
   --red-glow: rgba(228, 30, 46, 0.35);
+  
+  /* Default Dark Mode Variables */
   --bg: #0e0e0e;
   --bg-card: rgba(22, 22, 22, 0.4);
   --bg-card-2: rgba(28, 28, 28, 0.4);
@@ -21,26 +23,28 @@
   --text-dim: #555555;
   --input-bg: #1e1e1e;
   --input-border: #333333;
-  --neon-1: rgba(228, 30, 46, 0.07);
-  --neon-2: rgba(228, 30, 46, 0.05);
-  --neon-center: rgba(228, 30, 46, 0.08);
+  --neon-1: rgba(228, 30, 46, 0.08);
+  --neon-2: rgba(228, 30, 46, 0.06);
+  --neon-center: rgba(228, 30, 46, 0.1);
+  --neon-card: rgba(228, 30, 46, 0.15);
 }
 
 .light-mode {
-  --bg: #f5f7fa;
-  --bg-card: rgba(255, 255, 255, 0.8);
-  --bg-card-2: rgba(240, 244, 248, 0.8);
-  --bg-nav: rgba(255, 255, 255, 0.85);
-  --border: rgba(0, 0, 0, 0.1);
-  --text: #1a202c;
+  --bg: #ffffff;
+  --bg-card: rgba(245, 247, 250, 0.85);
+  --bg-card-2: rgba(235, 239, 245, 0.85);
+  --bg-nav: rgba(255, 255, 255, 0.9);
+  --border: rgba(0, 0, 0, 0.08);
+  --text: #0e1118;
   --text-inverted: #ffffff;
   --text-muted: #4a5568;
   --text-dim: #718096;
   --input-bg: #ffffff;
   --input-border: #e2e8f0;
-  --neon-1: rgba(228, 30, 46, 0.1);
-  --neon-2: rgba(228, 30, 46, 0.08);
-  --neon-center: rgba(228, 30, 46, 0.12);
+  --neon-1: rgba(228, 30, 46, 0.18);
+  --neon-2: rgba(228, 30, 46, 0.15);
+  --neon-center: rgba(228, 30, 46, 0.22);
+  --neon-card: rgba(228, 30, 46, 0.25);
 }
 
 html, body, #root {
