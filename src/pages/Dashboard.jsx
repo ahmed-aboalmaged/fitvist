@@ -34,12 +34,21 @@ export default function Dashboard() {
   return (
     <div style={{ minHeight: '100svh', background: 'var(--bg)', display: 'flex', flexDirection: 'column', position: 'relative', overflow: 'hidden' }}>
       {/* Neon Glow Blobs */}
-      <div style={{ position: 'absolute', top: '-10%', left: '-5%', width: '40vw', height: '40vw', background: 'radial-gradient(circle, rgba(228,30,46,0.07) 0%, transparent 70%)', filter: 'blur(60px)', pointerEvents: 'none', zIndex: 0 }} />
-      <div style={{ position: 'absolute', bottom: '10%', right: '-5%', width: '35vw', height: '35vw', background: 'radial-gradient(circle, rgba(228,30,46,0.05) 0%, transparent 70%)', filter: 'blur(50px)', pointerEvents: 'none', zIndex: 0 }} />
+      <div style={{ position: 'absolute', top: '-10%', left: '-5%', width: '40vw', height: '40vw', background: 'radial-gradient(circle, var(--neon-1) 0%, transparent 70%)', filter: 'blur(60px)', pointerEvents: 'none', zIndex: 0 }} />
+      <div style={{ position: 'absolute', bottom: '10%', right: '-5%', width: '35vw', height: '35vw', background: 'radial-gradient(circle, var(--neon-2) 0%, transparent 70%)', filter: 'blur(50px)', pointerEvents: 'none', zIndex: 0 }} />
+      
+      {/* Central Pulsing Glow */}
+      <div style={{ 
+        position: 'absolute', top: '50%', left: '50%', 
+        width: '60vw', height: '60vw', 
+        background: 'radial-gradient(circle, var(--neon-center) 0%, transparent 70%)', 
+        filter: 'blur(80px)', pointerEvents: 'none', zIndex: 0,
+        animation: 'center-pulse 8s infinite ease-in-out'
+      }} />
       
       <Navbar />
 
-      <main style={{ position: 'relative', zIndex: 1, flex: 1, maxWidth: 1280, width: '100%', margin: '0 auto', padding: 'clamp(16px, 4vw, 32px) clamp(16px, 4vw, 32px)', display: 'flex', flexDirection: 'column', gap: 'clamp(24px, 4vw, 40px)' }}>
+      <main style={{ position: 'relative', zIndex: 1, flex: 1, maxWidth: 1280, width: '100%', margin: '0 auto', padding: 'clamp(16px, 4vw, 32px) clamp(16px, 4vw, 32px)', paddingTop: 56, display: 'flex', flexDirection: 'column', gap: 'clamp(24px, 4vw, 40px)' }}>
 
         {/* ── HERO BANNER ── */}
         <section className="animate-fade-in-up">

@@ -52,7 +52,7 @@ export default function Chat() {
     <div style={{ minHeight: '100svh', display: 'flex', flexDirection: 'column', background: 'var(--bg)' }}>
       <Navbar />
 
-      <main style={{ flex: 1, display: 'flex', flexDirection: 'column', maxWidth: 760, width: '100%', margin: '0 auto', padding: 'clamp(12px, 3vw, 24px) clamp(12px, 4vw, 24px)', gap: 12, minHeight: 0 }}>
+      <main style={{ flex: 1, display: 'flex', flexDirection: 'column', maxWidth: 760, width: '100%', margin: '0 auto', padding: 'clamp(12px, 3vw, 24px) clamp(12px, 4vw, 24px)', paddingTop: 68, gap: 12, minHeight: 0 }}>
 
         {/* Chat Header */}
         <div

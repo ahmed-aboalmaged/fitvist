@@ -18,7 +18,15 @@ export default function Navbar() {
   const handleLogout = () => { logout(); navigate('/') }
 
   return (
-    <header style={{ background: 'var(--bg-nav)', backdropFilter: 'blur(16px)', WebkitBackdropFilter: 'blur(16px)', borderBottom: '1px solid var(--border)', position: 'sticky', top: 0, zIndex: 50 }}>
+    <header style={{ 
+      background: 'var(--bg-nav)', 
+      backdropFilter: 'blur(20px)', 
+      WebkitBackdropFilter: 'blur(20px)', 
+      borderBottom: '1px solid var(--border)', 
+      position: 'fixed', 
+      top: 0, left: 0, right: 0, 
+      zIndex: 100 
+    }}>
       <div style={{ maxWidth: 1280, margin: '0 auto', padding: '0 20px', display: 'flex', alignItems: 'center', justifyContent: 'space-between', height: 56 }}>
 
         {/* Logo */}

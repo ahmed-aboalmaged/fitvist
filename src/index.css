@@ -21,6 +21,9 @@
   --text-dim: #555555;
   --input-bg: #1e1e1e;
   --input-border: #333333;
+  --neon-1: rgba(228, 30, 46, 0.07);
+  --neon-2: rgba(228, 30, 46, 0.05);
+  --neon-center: rgba(228, 30, 46, 0.08);
 }
 
 .light-mode {
@@ -35,6 +38,9 @@
   --text-dim: #718096;
   --input-bg: #ffffff;
   --input-border: #e2e8f0;
+  --neon-1: rgba(228, 30, 46, 0.1);
+  --neon-2: rgba(228, 30, 46, 0.08);
+  --neon-center: rgba(228, 30, 46, 0.12);
 }
 
 html, body, #root {
@@ -83,6 +89,10 @@ body {
 @keyframes pulse-red {
   0%, 100% { box-shadow: 0 0 0 0 var(--red-glow); }
   50%       { box-shadow: 0 0 20px 4px var(--red-glow); }
+}
+@keyframes center-pulse {
+  0%, 100% { transform: translate(-50%, -50%) scale(1); opacity: 0.15; }
+  50%       { transform: translate(-50%, -50%) scale(1.1); opacity: 0.25; }
 }
 @keyframes spin {
   from { transform: rotate(0deg); }
