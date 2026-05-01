@@ -32,10 +32,14 @@ export default function Dashboard() {
   const progress = Math.round((completedCount / workouts.length) * 100)
 
   return (
-    <div style={{ minHeight: '100svh', background: 'var(--bg)', display: 'flex', flexDirection: 'column' }}>
+    <div style={{ minHeight: '100svh', background: 'var(--bg)', display: 'flex', flexDirection: 'column', position: 'relative', overflow: 'hidden' }}>
+      {/* Neon Glow Blobs */}
+      <div style={{ position: 'absolute', top: '-10%', left: '-5%', width: '40vw', height: '40vw', background: 'radial-gradient(circle, rgba(228,30,46,0.07) 0%, transparent 70%)', filter: 'blur(60px)', pointerEvents: 'none', zIndex: 0 }} />
+      <div style={{ position: 'absolute', bottom: '10%', right: '-5%', width: '35vw', height: '35vw', background: 'radial-gradient(circle, rgba(228,30,46,0.05) 0%, transparent 70%)', filter: 'blur(50px)', pointerEvents: 'none', zIndex: 0 }} />
+      
       <Navbar />
 
-      <main style={{ flex: 1, maxWidth: 1280, width: '100%', margin: '0 auto', padding: 'clamp(16px, 4vw, 32px) clamp(16px, 4vw, 32px)', display: 'flex', flexDirection: 'column', gap: 'clamp(24px, 4vw, 40px)' }}>
+      <main style={{ position: 'relative', zIndex: 1, flex: 1, maxWidth: 1280, width: '100%', margin: '0 auto', padding: 'clamp(16px, 4vw, 32px) clamp(16px, 4vw, 32px)', display: 'flex', flexDirection: 'column', gap: 'clamp(24px, 4vw, 40px)' }}>
 
         {/* ── HERO BANNER ── */}
         <section className="animate-fade-in-up">
@@ -95,18 +99,43 @@ export default function Dashboard() {
         <section>
           <p className="fv-label" style={{ fontSize: '0.65rem', letterSpacing: '0.2em', color: 'var(--text-muted)', marginBottom: 14 }}>▸ PERFORMANCE OVERVIEW</p>
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(160px, 1fr))', gap: 12 }}>
-            {stats.map((s, i) => (
-              <div
-                key={s.label}
-                className="animate-fade-in-up fv-card"
-                style={{ animationDelay: `${i * 0.07}s`, borderRadius: 4, padding: 'clamp(14px, 3vw, 20px)', position: 'relative', overflow: 'hidden', borderLeft: '3px solid var(--red)' }}
-              >
-                <div style={{ position: 'absolute', top: 8, right: 12, fontSize: '1.5rem', opacity: 0.1 }}>{s.icon}</div>
-                <p className="fv-label" style={{ fontSize: '0.58rem', color: 'var(--text-dim)', letterSpacing: '0.14em', marginBottom: 4 }}>{s.label.toUpperCase()}</p>
-                <p className="fv-heading" style={{ fontSize: 'clamp(1.3rem, 3vw, 1.8rem)', marginBottom: 2 }}>{s.value}</p>
-                <p className="fv-label" style={{ fontSize: '0.62rem', color: 'var(--red)' }}>{s.change}</p>
-              </div>
-            ))}
+            {stats.map((s, i) => {
+              const iconColors = {
+                'Workouts Done':   { color: '#fbbf24', glow: 'rgba(251,191,36,0.4)' },
+                'Calories Burned': { color: '#ef4444', glow: 'rgba(239,68,68,0.4)' },
+                'Active Minutes':  { color: '#22d3ee', glow: 'rgba(34,211,238,0.4)' },
+                'Streak':          { color: '#facc15', glow: 'rgba(250,204,21,0.4)' },
+              }
+              const theme = iconColors[s.label] || { color: 'var(--red)', glow: 'var(--red-glow)' }
+              
+              return (
+                <div
+                  key={s.label}
+                  className="animate-fade-in-up fv-card"
+                  style={{ 
+                    animationDelay: `${i * 0.07}s`, 
+                    borderRadius: 4, 
+                    padding: 'clamp(14px, 3vw, 20px)', 
+                    position: 'relative', 
+                    overflow: 'hidden', 
+                    borderLeft: `3px solid ${theme.color}`,
+                    boxShadow: `0 0 20px ${theme.glow.replace('0.4', '0.05')}`
+                  }}
+                >
+                  <div style={{ 
+                    position: 'absolute', top: 12, right: 12, 
+                    fontSize: '1.4rem', 
+                    filter: `drop-shadow(0 0 8px ${theme.glow})`,
+                    opacity: 0.8
+                  }}>
+                    {s.icon}
+                  </div>
+                  <p className="fv-label" style={{ fontSize: '0.58rem', color: 'var(--text-dim)', letterSpacing: '0.14em', marginBottom: 4 }}>{s.label.toUpperCase()}</p>
+                  <p className="fv-heading" style={{ fontSize: 'clamp(1.3rem, 3vw, 1.8rem)', marginBottom: 2 }}>{s.value}</p>
+                  <p className="fv-label" style={{ fontSize: '0.62rem', color: theme.color }}>{s.change}</p>
+                </div>
+              )
+            })}
           </div>
         </section>
 
