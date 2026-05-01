@@ -84,11 +84,27 @@ export default function Signup() {
           background: 'radial-gradient(ellipse 70% 60% at 50% 40%, rgba(228,30,46,0.08) 0%, transparent 70%)',
         }}
       >
-        {/* Card */}
-        <div
-          className="animate-fade-in-up fv-card"
-          style={{ position: 'relative', width: '100%', maxWidth: 420, borderRadius: 4, overflow: 'hidden', boxShadow: '0 8px 60px rgba(0,0,0,0.7)' }}
-        >
+        {/* Card with Glow */}
+        <div style={{ position: 'relative', width: '100%', maxWidth: 420 }}>
+          {/* Glow Blob */}
+          <div style={{ 
+            position: 'absolute', top: '50%', left: '50%', transform: 'translate(-50%, -50%)',
+            width: '120%', height: '120%', 
+            background: 'radial-gradient(circle, rgba(228,30,46,0.12) 0%, transparent 70%)', 
+            filter: 'blur(50px)', pointerEvents: 'none', zIndex: 0 
+          }} />
+
+          <div
+            className="animate-fade-in-up fv-card"
+            style={{ 
+              position: 'relative', 
+              width: '100%', 
+              borderRadius: 4, 
+              overflow: 'hidden', 
+              boxShadow: '0 8px 60px rgba(0,0,0,0.7)',
+              zIndex: 1
+            }}
+          >
           <div className="fv-red-line" />
           <div style={{ padding: 'clamp(24px, 6vw, 40px) clamp(20px, 6vw, 36px) clamp(24px, 6vw, 40px) clamp(28px, 7vw, 44px)' }}>
 
@@ -141,13 +157,14 @@ export default function Signup() {
             </p>
           </div>
         </div>
+      </div>
 
-        {/* Badge */}
-        <div className="animate-fade-in" style={{ marginTop: 28, display: 'flex', alignItems: 'center', gap: 8, padding: '8px 20px', border: '1px solid var(--border)', background: 'var(--bg-card)', borderRadius: 3, animationDelay: '0.3s' }}>
-          <span style={{ color: 'var(--red)' }}>⚡</span>
-          <span className="fv-label" style={{ fontSize: '0.58rem', letterSpacing: '0.24em', color: 'var(--text-muted)' }}>HIGH PERFORMANCE ONLY</span>
-        </div>
-      </main>
+      {/* Badge */}
+      <div className="animate-fade-in" style={{ marginTop: 28, display: 'flex', alignItems: 'center', gap: 8, padding: '8px 20px', border: '1px solid var(--border)', background: 'var(--bg-card)', borderRadius: 3, animationDelay: '0.3s', position: 'relative', zIndex: 1 }}>
+        <span style={{ color: 'var(--red)' }}>⚡</span>
+        <span className="fv-label" style={{ fontSize: '0.58rem', letterSpacing: '0.24em', color: 'var(--text-muted)' }}>HIGH PERFORMANCE ONLY</span>
+      </div>
+    </main>
 
       {/* FOOTER */}
       <footer style={{ background: 'var(--bg-nav)', borderTop: '1px solid var(--border)' }}>
