@@ -6,7 +6,7 @@
   padding: 0;
 }
 
-:root {
+:root, .dark-mode {
   --red: #e41e2e;
   --red-dark: #b91626;
   --red-glow: rgba(228, 30, 46, 0.35);
@@ -16,10 +16,25 @@
   --bg-nav: rgba(17, 17, 17, 0.5);
   --border: rgba(42, 42, 42, 0.5);
   --text: #ffffff;
+  --text-inverted: #ffffff;
   --text-muted: #888888;
   --text-dim: #555555;
   --input-bg: #1e1e1e;
   --input-border: #333333;
+}
+
+.light-mode {
+  --bg: #f5f7fa;
+  --bg-card: rgba(255, 255, 255, 0.8);
+  --bg-card-2: rgba(240, 244, 248, 0.8);
+  --bg-nav: rgba(255, 255, 255, 0.85);
+  --border: rgba(0, 0, 0, 0.1);
+  --text: #1a202c;
+  --text-inverted: #ffffff;
+  --text-muted: #4a5568;
+  --text-dim: #718096;
+  --input-bg: #ffffff;
+  --input-border: #e2e8f0;
 }
 
 html, body, #root {

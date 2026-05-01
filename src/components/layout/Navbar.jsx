@@ -1,6 +1,7 @@
 import { Link, useLocation, useNavigate } from 'react-router-dom'
-import { useAuth } from '../../context/AuthContext'
 import { useState } from 'react'
+import { useAuth } from '../../context/AuthContext'
+import { useTheme } from '../../context/ThemeContext'
 
 const navLinks = [
   { path: '/dashboard', label: 'DASHBOARD', icon: '▦' },
@@ -9,6 +10,7 @@ const navLinks = [
 
 export default function Navbar() {
   const { user, logout } = useAuth()
+  const { isDarkMode, toggleTheme } = useTheme()
   const location = useLocation()
   const navigate = useNavigate()
   const [menuOpen, setMenuOpen] = useState(false)
@@ -57,6 +59,13 @@ export default function Navbar() {
 
         {/* Desktop right */}
         <div style={{ display: 'flex', alignItems: 'center', gap: 12, flexShrink: 0 }} className="desktop-right">
+          <button
+            onClick={toggleTheme}
+            style={{ background: 'none', border: 'none', cursor: 'pointer', fontSize: '1.2rem', padding: '4px' }}
+            title={isDarkMode ? 'Switch to Light Mode' : 'Switch to Dark Mode'}
+          >
+            {isDarkMode ? '☀️' : '🌙'}
+          </button>
           <span className="fv-label" style={{ fontSize: '0.62rem', color: 'var(--text-muted)', letterSpacing: '0.08em', whiteSpace: 'nowrap' }}>
             ATHLETE:{' '}
             <span style={{ color: 'var(--red)', fontWeight: 900 }}>{user?.name?.toUpperCase()}</span>
@@ -126,6 +135,12 @@ export default function Navbar() {
 
             {/* Mobile user info */}
             <div style={{ padding: '12px 24px', borderTop: '1px solid var(--border)', display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
+              <button
+                onClick={toggleTheme}
+                style={{ background: 'none', border: 'none', cursor: 'pointer', fontSize: '1.1rem' }}
+              >
+                {isDarkMode ? '☀️ Day Mode' : '🌙 Dark Mode'}
+              </button>
               <span className="fv-label" style={{ fontSize: '0.62rem', color: 'var(--text-muted)' }}>
                 ATHLETE: <span style={{ color: 'var(--red)', fontWeight: 900 }}>{user?.name?.toUpperCase()}</span>
               </span>

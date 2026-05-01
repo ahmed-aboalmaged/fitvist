@@ -1,11 +1,13 @@
 import { useState } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
 import { useAuth } from '../context/AuthContext'
+import { useTheme } from '../context/ThemeContext'
 
 const FOOTER_LINKS = ['PRIVACY POLICY', 'TERMS OF SERVICE', 'SUPPORT', 'COOKIES']
 
 export default function Login() {
   const { login, loading } = useAuth()
+  const { isDarkMode, toggleTheme } = useTheme()
   const navigate = useNavigate()
 
   const [form, setForm] = useState({ email: '', password: '', remember: false })
@@ -44,7 +46,16 @@ export default function Login() {
       {/* ── NAVBAR ── */}
       <header style={{ background: 'var(--bg-nav)', borderBottom: '1px solid var(--border)', position: 'sticky', top: 0, zIndex: 50 }}>
         <div style={{ maxWidth: 1280, margin: '0 auto', padding: '12px 20px', display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
-          <span className="fv-brand" style={{ fontSize: 'clamp(1.1rem, 4vw, 1.5rem)', letterSpacing: '0.12em' }}>FITVERSE</span>
+          <div style={{ display: 'flex', alignItems: 'center', gap: 16 }}>
+            <span className="fv-brand" style={{ fontSize: 'clamp(1.1rem, 4vw, 1.5rem)', letterSpacing: '0.12em' }}>FITVERSE</span>
+            <button
+              onClick={toggleTheme}
+              style={{ background: 'none', border: 'none', cursor: 'pointer', fontSize: '1.2rem', display: 'flex', alignItems: 'center' }}
+              title={isDarkMode ? 'Switch to Light Mode' : 'Switch to Dark Mode'}
+            >
+              {isDarkMode ? '☀️' : '🌙'}
+            </button>
+          </div>
           <Link
             to="/signup"
             id="join-now-btn"

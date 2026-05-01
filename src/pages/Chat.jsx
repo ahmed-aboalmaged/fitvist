@@ -98,7 +98,7 @@ export default function Chat() {
                   background: isUser ? 'var(--red)' : 'rgba(228,30,46,0.15)',
                   border: isUser ? 'none' : '1px solid rgba(228,30,46,0.3)',
                   display: 'flex', alignItems: 'center', justifyContent: 'center',
-                  fontSize: isUser ? '0.65rem' : '0.9rem', color: '#fff',
+                  fontSize: isUser ? '0.65rem' : '0.9rem', color: 'var(--text-inverted)',
                   fontFamily: "'Barlow Condensed', sans-serif", fontWeight: 700,
                 }}>
                   {isUser ? 'ME' : '🤖'}
@@ -114,7 +114,7 @@ export default function Chat() {
                   borderLeft: isUser ? 'none' : '3px solid var(--red)',
                   fontFamily: "'Barlow', sans-serif",
                   fontSize: 'clamp(0.8rem, 2.5vw, 0.88rem)',
-                  color: '#fff',
+                  color: isUser ? 'var(--text-inverted)' : 'var(--text)',
                   lineHeight: 1.65,
                   boxShadow: isUser ? '0 0 16px rgba(228,30,46,0.2)' : 'none',
                   wordBreak: 'break-word',
@@ -192,7 +192,7 @@ export default function Chat() {
             className="fv-label"
             style={{
               flex: 1, resize: 'none', background: 'none', border: 'none', outline: 'none',
-              color: '#fff', fontSize: 'clamp(0.72rem, 2vw, 0.78rem)', letterSpacing: '0.08em',
+              color: 'var(--text)', fontSize: 'clamp(0.72rem, 2vw, 0.78rem)', letterSpacing: '0.08em',
               minHeight: 28, maxHeight: 120, overflowY: 'auto',
               opacity: typing ? 0.5 : 1, fontFamily: "'Barlow Condensed', sans-serif",
               lineHeight: 1.5,
