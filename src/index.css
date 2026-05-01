@@ -11,10 +11,10 @@
   --red-dark: #b91626;
   --red-glow: rgba(228, 30, 46, 0.35);
   --bg: #0e0e0e;
-  --bg-card: #161616;
-  --bg-card-2: #1c1c1c;
-  --bg-nav: #111111;
-  --border: #2a2a2a;
+  --bg-card: rgba(22, 22, 22, 0.4);
+  --bg-card-2: rgba(28, 28, 28, 0.4);
+  --bg-nav: rgba(17, 17, 17, 0.5);
+  --border: rgba(42, 42, 42, 0.5);
   --text: #ffffff;
   --text-muted: #888888;
   --text-dim: #555555;
@@ -153,6 +153,8 @@ body {
 .fv-card {
   background: var(--bg-card);
   border: 1px solid var(--border);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
 }
 
 .fv-red-line {

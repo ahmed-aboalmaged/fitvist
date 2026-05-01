@@ -16,7 +16,7 @@ export default function Navbar() {
   const handleLogout = () => { logout(); navigate('/') }
 
   return (
-    <header style={{ background: 'var(--bg-nav)', borderBottom: '1px solid var(--border)', position: 'sticky', top: 0, zIndex: 50 }}>
+    <header style={{ background: 'var(--bg-nav)', backdropFilter: 'blur(16px)', WebkitBackdropFilter: 'blur(16px)', borderBottom: '1px solid var(--border)', position: 'sticky', top: 0, zIndex: 50 }}>
       <div style={{ maxWidth: 1280, margin: '0 auto', padding: '0 20px', display: 'flex', alignItems: 'center', justifyContent: 'space-between', height: 56 }}>
 
         {/* Logo */}
@@ -98,7 +98,7 @@ export default function Navbar() {
 
       {/* Mobile dropdown */}
       {menuOpen && (
-        <div style={{ borderTop: '1px solid var(--border)', background: 'var(--bg-nav)' }} className="mobile-dropdown">
+        <div style={{ borderTop: '1px solid var(--border)', background: 'var(--bg-nav)', backdropFilter: 'blur(16px)', WebkitBackdropFilter: 'blur(16px)' }} className="mobile-dropdown">
           <div style={{ padding: '8px 0' }}>
             {navLinks.map(link => {
               const active = location.pathname === link.path
