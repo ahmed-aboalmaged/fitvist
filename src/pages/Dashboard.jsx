@@ -24,9 +24,9 @@ export default function Dashboard() {
   const { user } = useAuth()
   const [activeCategory, setActiveCategory] = useState('ALL')
 
-  const filtered = activeCategory === 'ALL'
+  const filtered = (activeCategory === 'ALL'
     ? workouts
-    : workouts.filter(w => w.category.toUpperCase() === activeCategory)
+    : workouts.filter(w => w.category.toUpperCase() === activeCategory)).slice(0, 3)
 
   const completedCount = workouts.filter(w => w.completed).length
   const progress = Math.round((completedCount / workouts.length) * 100)
